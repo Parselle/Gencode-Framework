@@ -1,0 +1,148 @@
+.c-form {
+    @include flex(column, flex-start, stretch);
+    width: 95%;
+    max-width: 650px;
+    padding: 40px 20px;
+    border-radius: 30px;
+    background: lightblue;
+
+    @include media(730px) {
+        padding: 30px 15px; 
+    }
+
+    &__title {
+        padding: 0 5px;
+        padding-bottom: 25px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid #a4c9e3;
+        border-radius: 15px 15px 0 0;
+
+        h2 {
+            color: #fefefe;
+
+            @include media(730px) {
+                font-size: 24px;
+            }
+        }
+    }
+
+    &__row {
+        position: relative;
+        @include flex(row, space-between, center);
+        margin: 7px 0;
+        z-index: 1;
+
+        @include media(730px) {
+            @include flex(column, center, center); 
+            margin: 0;
+        }
+
+        &--1,
+        &--2,
+        &--3 {
+            @extend .c-form__row;
+        }
+
+        &--1 {
+            justify-content: center;
+            
+            .c-input {
+                width: 100%;
+            }
+        }
+
+        &--2 {
+            .c-form__block {
+                width: 100%;
+                max-width: 290px;
+            }
+        }
+
+        &--3 {
+            .c-form__block {
+                width: 100%;
+                max-width: 186px;
+                text-align: left;
+            }
+        }
+
+    }
+
+    &__block {
+        position: relative;
+
+        @include media(730px) {
+            max-width: 100% !important;
+            margin: 5px 0;
+        }
+
+        &::after {
+            content: "";
+            @include flex(row, center, center);
+            position: absolute;
+            top: 26px;
+            right: 0;
+            width: 54px;
+            height: 50px;
+            border-radius: 0 25px 25px 0;
+            color: #999999;
+        }
+
+        label {
+            @include flex(row, flex-start, flex-start);
+            @include font-preset(16px, 500, white);
+            width: 100%;
+            padding-left: 15px;
+        }
+    }
+
+    input[type="submit"] {
+        margin: 0 auto;
+        margin-top: rem(15px);
+        margin-bottom: rem(20px);
+
+        @include media(500px) {
+            max-width: 100%;
+        }
+    }
+
+    &__footer {
+        @include flex(row, flex-start, center);
+
+        @include media(450px) {
+            @include flex(column, center, center);
+        }
+
+        .footer__icon {
+            margin-right: 10px;
+
+            @include media(450px) {
+                margin: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        .footer__text {
+            @include font-preset(16px, 400, white);
+        }
+
+    }
+
+}
+
+.c-input {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 25px;
+    @include font-preset(16px, 400, black);
+    outline: none;
+    transition: 0.2s;
+
+    &:active,
+    &:focus {
+        color: black;
+    }
+}
+  

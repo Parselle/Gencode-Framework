@@ -1,0 +1,32 @@
+{
+  "name": "gencode-framework",
+  "version": "1.0.0",
+  "description": "gencode-framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "parselledev@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "latest",
+    "css-mqpacker": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-concat": "latest",
+    "gulp-csso": "latest",
+    "gulp-htmlhint": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-plumber": "latest",
+    "gulp-pngquant": "latest",
+    "gulp-postcss": "latest",
+    "gulp-px-to-rem": "latest",
+    "gulp-rigger": "latest",
+    "gulp-sass": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-uglifyes": "latest",
+    "gulp-wait": "latest",
+    "gulp-watch": "latest",
+    "rimraf": "latest"
+  }
+}

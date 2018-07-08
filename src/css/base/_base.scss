@@ -1,0 +1,35 @@
+
+* {
+    transition: all 0.2s;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: $font-size;
+}
+
+// Code
+
+pre {
+    overflow: auto;
+}
+
+code {
+    background: lighten(lightgray, 6.4%);
+    border: 1px solid lightgray;
+    font-size: 90%;
+    margin: 0 .2rem;
+    padding: .2rem .5rem;
+    white-space: nowrap;
+}
+
+pre > code {
+    display: block;
+    padding: 1rem 1.5rem;
+    white-space: pre;
+}

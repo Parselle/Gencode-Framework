@@ -1,0 +1,55 @@
+<form class="order__form c-form" action="" method="post" onsubmit="validateform(this); return false;">
+
+    <div class="c-form__title">
+        <h2>Заголовок формы</h2>
+    </div>
+
+    <!--
+    <input type="hidden" name="Lead[offer]" value="bormental">
+    <input class="cityInput" value="<?=$_GET['city']?>" name="Lead[city]" type="hidden">
+    <?php echo empty($sessiondata["click"])?'':'<input type="hidden" name="Lead[click]" value="'.$sessiondata["click"].'" />'; ?>
+    <input type="hidden" name="Lead[landing_id]" value="<?php echo $landings_id; ?>">
+    <input type="hidden" name="Lead[sub1]" value="<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>">
+    <input type="hidden" name="Lead[sub2]" value="<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>">
+    <input type="hidden" name="Lead[sub3]" value="<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>">
+    <input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
+    <input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
+    <input type="hidden" name="Lead[wmkey]" value="<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>">
+    -->
+
+    <div class="c-form__row--2">
+        <div class="c-form__block">
+            <label for="name">Ваше имя</label>
+            <input class="c-input" id="name" type="text" name="Lead[name]">
+        </div>
+
+        <div class="c-form__block">
+            <label for="phone">Ваш телефон</label>
+            <input class="c-input" id="phone" type="tel" name="Lead[phone]" pattern="(\+?\d[- .]*){7,13}">
+        </div>
+    </div>
+
+    <div class="c-form__row--3">
+        <div class="c-form__block">
+            <label for="height">Ваш рост</label>
+            <input class="c-input" id="height" type="number" name="Lead[height]">
+        </div>
+        
+        <div class="c-form__block">
+            <label for="weight">Ваш вес</label>
+            <input class="c-input" id="weight" type="number" name="Lead[weight]">
+        </div>
+        
+        <div class="c-form__block">
+            <label for="age">Ваш возраст</label>
+            <input class="c-input" id="age" type="number" name="Lead[age]">
+        </div>
+    </div>
+
+    <input class="c-btn c-form__btn" type="submit" value="ЗАПИСАТЬСЯ">
+
+    <div class="c-form__footer">
+        <p class="footer__text">Текст в футере</p>
+    </div>
+
+</form>

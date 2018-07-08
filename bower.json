@@ -1,0 +1,20 @@
+{
+  "name": "gencode-framework",
+  "description": "gencode-framework",
+  "main": "index.js",
+  "authors": [
+    "parselledev@gmail.com"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "3.1.1"
+  }
+}
