@@ -1,3 +1,4 @@
+
 'use strict';
 
 //Add plugin
@@ -76,7 +77,7 @@ let config = {
     },
     tunnel: true,
     host: 'localhost',
-    port: 9009,
+    port: 3001,
     logPrefix: "localhost"
 };
 

@@ -1,40 +1,10 @@
+
 @charset 'UTF-8';
 
-// 1. Configuration and helpers
-@import
-  './abstracts/variables',
-  './abstracts/functions',
-  './abstracts/mixins';
-
-// 2. Base stuff
-@import
-  './base/animations',
-  './base/base',
-  './base/fonts',
-  './base/grid',
-  './base/helpers',
-  './base/normalize',
-  './base/typography';
-
-// 3. Components
-@import
-  './components/c-btn',
-  './components/c-form',
-  './components/c-link';
-
-// 4. Layout-related sections
-@import
-  './layout/l-footer',
-  './layout/l-header';
-
-// 5. Page-specific styles
-@import
-  './pages/p-home';
-
-// 7. Themes
-@import
-  './themes/t-default';
-
-// 8. Vendor
-
-// 9. Vendor extensions (override)
+@import './abstracts/@module'; // Configuration and helpers
+@import './base/@module'; // Base stuff
+@import './components/@module'; // Components
+@import './layout/@module'; // Layout-related sections
+@import './pages/@module'; // Page-specific styles
+@import './themes/@module'; // Themes
+@import  './vendor/@module'; // Vendor

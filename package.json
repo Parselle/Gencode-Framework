@@ -1,6 +1,6 @@
 {
   "name": "gencode-framework",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "gencode-framework",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "devDependencies": {
     "browser-sync": "latest",
     "css-mqpacker": "latest",
-    "gulp": "latest",
+    "gulp": "3.9.1",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "latest",
     "gulp-csso": "latest",
