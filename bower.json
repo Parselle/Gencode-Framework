@@ -6,7 +6,6 @@
     "parselledev@gmail.com"
   ],
   "license": "ISC",
-  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",

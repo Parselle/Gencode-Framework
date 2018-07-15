@@ -1,3 +1,4 @@
+//Gulp 4
 
 'use strict';
 
@@ -12,6 +13,7 @@ let gulp = require('gulp'),
     wait = require('gulp-wait'),
 
     htmlhint = require('gulp-htmlhint'),
+    pug = require('gulp-pug'),
 
     sass = require('gulp-sass'),
     postcss = require('gulp-postcss'),
@@ -29,48 +31,53 @@ let gulp = require('gulp'),
     reload = browserSync.reload;
 	
 
-	//Variable Path
-	let path = {
-		
-    build: { // Way for complete(build) files
-        html: 'build/',
-        php: 'build/',
-        js_app: 'build/js/',
-        js_vendor: 'build/js/vendor/',
-        css: 'build/css/',
-        img: 'build/img/',
-        fonts: 'build/fonts/'
+//Variable Path
+let path = {
+    
+    //Way for complete(build) files
+    build: {
+        pug_core: 'build/',
+        js_core: 'build/js/',
+        sass_core: 'build/css/',
+        assets: {
+            img: 'build/img/',
+            fonts: 'build/fonts/',
+            other: 'build/'
+        }
     },
 	
-	
-	src: { //Way for src(dev) files
-        html: 'src/*.html',
-        php: 'src/*.php',
-        js_app: 'src/js/app/*.js',
-        js_jquery: 'src/js/vendor/jquery.min.js',
-        js_vendor: ['src/js/vendor/*.js', '!src/js/vendor/jquery.min.js'],
-        css: 'src/css/**/*.scss',
-        css_or: 'src/css/override.css',
-        img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+	//Way for src(dev) files
+	src: {
+        pug: 'src/pug-core/*.pug',
+        js_core: 'src/js-core/main.js',
+        sass_core: 'src/sass-core/main.sass',
+        assets: {
+            img: 'src/assets/img/**/*.*',
+            fonts: 'src/assets/fonts/**/*.*',
+            other: [
+                'src/assets/**/*.*',
+                '!src/assets/img/**/*.*',
+                '!src/assets/fonts/**/*.*'
+              ]
+        }
     },
 	
-	
-    watch: {  //Files to watch
-        html: 'src/**/*.html',
-        php: 'src/*.php',
-        js: 'src/js/**/*.js',
-        css: 'src/css/**/*.scss',
-        img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+	//Files to watch
+    watch: {
+        pug: 'src/pug-core/**/*.pug',
+        js_core: 'src/js-core/**/*.js',
+        sass_core: 'src/sass-core/**/*.sass',
+        assets: {
+            img: 'src/assets/img/**/*.*',
+            fonts: 'src/assets/fonts/**/*.*'
+        }
     },
-	
+    
+    //Clean folder (output)
     clean: './build'
 };
 
-
-
-//Dev-server
+//Server config
 let config = {
     server: {
         baseDir: "./build"
@@ -81,76 +88,83 @@ let config = {
     logPrefix: "localhost"
 };
 
-
 //LiveReload
 gulp.task('webserver', function () {
     browserSync(config);
 });
 
-
-//------------------------------------------------------
-
-
-//Merge HTML files
-gulp.task('html:build', function () {
-    gulp.src(path.src.html) //Choose files
+//Merge Pug files (Dev-build)
+gulp.task('pug_core', function () {
+    return gulp.src(path.src.pug) //Choose files
         .pipe(plumber()) //Run error handler
         .pipe(rigger()) //Tunnel to rigger
         .pipe(htmlhint()) //Validate html
         .pipe(plumber.stop()) //Stop error handler
-        .pipe(gulp.dest(path.build.html)) //Past to build folder
+        .pipe(pug())
+        .pipe(gulp.dest(path.build.pug_core)) //Past to build folder
         .pipe(reload({stream: true})); //Restart server
 });
 
-//Merge PHP files
-gulp.task('php:build', function () {
-    gulp.src(path.src.php) //Choose files
+//Merge Pug files (Prod-build)
+gulp.task('pug_core:prod', function () {
+    return gulp.src(path.src.pug) //Choose files
         .pipe(plumber()) //Run error handler
+        .pipe(rigger()) //Tunnel to rigger
+        .pipe(htmlhint()) //Validate html
         .pipe(plumber.stop()) //Stop error handler
-        .pipe(gulp.dest(path.build.php)) //Past to build folder
+        .pipe(pug())
+        .pipe(gulp.dest(path.build.pug_core)) //Past to build folder
         .pipe(reload({stream: true})); //Restart server
 });
 
+//Merge JS files (Dev-build)
+gulp.task('js_core', function () {
+    return gulp.src(path.src.js_core) //Choose main.js
+        .pipe(plumber()) //Run error handler
+        .pipe(rigger()) //Tunnel to rigger
+        .pipe(plumber.stop()) //Stop error handler
+        .pipe(gulp.dest(path.build.js_core)); //Past to build folder
+});
 
-//Merge JS files
-gulp.task('js:build', function () {
-    gulp.src(path.src.js_app) //Choose main.js
+//Merge JS files (Prod-build)
+gulp.task('js_core:prod', function () {
+    return gulp.src(path.src.js_core) //Choose main.js
         .pipe(plumber()) //Run error handler
         .pipe(rigger()) //Tunnel to rigger
         .pipe(sourcemaps.init()) //Initializing sourcemap
         .pipe(uglify()) //Min ES6+
-        .pipe(concat('app.js')) //Merge all files
+        //.pipe(concat('app.js')) //Merge all files
         .pipe(sourcemaps.write()) //Write Maps
         .pipe(plumber.stop()) //Stop error handler
-        .pipe(gulp.dest(path.build.js_app)); //Past to build folder
-
-    gulp.src(path.src.js_jquery)
-        .pipe(plumber()) //Run error handler
-        .pipe(rigger())
-        .pipe(plumber.stop()) //Stop error handler
-        .pipe(gulp.dest(path.build.js_vendor)); //Past to build folder
-    
-    gulp.src(path.src.js_vendor)
-        .pipe(plumber()) //Run error handler
-        .pipe(rigger()) //Tunnel to rigger
-        .pipe(sourcemaps.init()) //Initializing sourcemap
-        .pipe(uglify()) //Min ES6+
-        .pipe(concat('vendor.min.js'))
-        .pipe(sourcemaps.write()) //Write Maps
-        .pipe(plumber.stop()) //Stop error handler
-        .pipe(gulp.dest(path.build.js_vendor)) //Past to build folder
-        .pipe(reload({stream: true})); //Restart server
+        .pipe(gulp.dest(path.build.js_core)); //Past to build folder
 });
 
-
-//Merge Style files
-gulp.task('css:build', function () {
+//Merge Sass files (Dev-build)
+gulp.task('sass_core', function () {
 	
 	let plugins = [  //Init postcss plugins
 	    mqpacker //Merge same @media
 	];
 	
-    gulp.src(path.src.css) //Choose main.scss
+    return gulp.src(path.src.sass_core) //Choose main.sass
+        .pipe(plumber()) //Run error handler
+        .pipe(wait(500))
+        .pipe(sass()) //Compilation
+        .pipe(autoprefixer()) //Add prefixes
+        .pipe(pxrem({rootPX: 16})) // Convert PX to REM
+        .pipe(plumber.stop()) //Stop error handler
+        .pipe(gulp.dest(path.build.sass_core)) //Past to build folder
+        .pipe(reload({stream: true}));  //Restart server
+});
+
+//Merge Sass files (Prod-build)
+gulp.task('sass_core:prod', function () {
+	
+	let plugins = [  //Init postcss plugins
+	    mqpacker //Merge same @media
+	];
+	
+    return gulp.src(path.src.sass_core) //Choose main.sass
         .pipe(plumber()) //Run error handler
         .pipe(wait(500))
         .pipe(sourcemaps.init()) //Initializing sourcemap
@@ -161,64 +175,86 @@ gulp.task('css:build', function () {
         .pipe(pxrem({rootPX: 16})) // Convert PX to REM
         .pipe(sourcemaps.write())  //Write Maps
         .pipe(plumber.stop()) //Stop error handler
-        .pipe(gulp.dest(path.build.css)) //Past to build folder
+        .pipe(gulp.dest(path.build.sass_core)) //Past to build folder
         .pipe(reload({stream: true}));  //Restart server
-
-    gulp.src(path.src.css_or) //Choose overwrite.css
-        .pipe(gulp.dest(path.build.css)); //Past to build folder
 });
 
-
-
-
-
-//Minimalize images
-gulp.task('image:build', function () {
-    gulp.src(path.src.img) //Choose images
+//Copy images (Dev-build)
+gulp.task('assets:img', function () {
+    return gulp.src(path.src.assets.img) //Choose images
         .pipe(plumber()) //Run error handler
-        /*.pipe(imagemin({ //Minimalize
+        .pipe(plumber.stop()) //Stop error handler
+        .pipe(gulp.dest(path.build.assets.img)) //Past to build folder
+        .pipe(reload({stream: true}));  //Restart server
+});
+
+//Copy images (Prod-build)
+gulp.task('assets:img:prod', function () {
+    return gulp.src(path.src.assets.img) //Choose images
+        .pipe(plumber()) //Run error handler
+        .pipe(imagemin({ //Minimalize
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
             interlaced: true
-        }))*/
+        }))
         .pipe(plumber.stop()) //Stop error handler
-        .pipe(gulp.dest(path.build.img)) //Past to build folder
+        .pipe(gulp.dest(path.build.assets.img)) //Past to build folder
         .pipe(reload({stream: true}));  //Restart server
 });
 
-
-//Copy fonts without any compression
-gulp.task('fonts:build', function() {
-    gulp.src(path.src.fonts)
-        .pipe(gulp.dest(path.build.fonts))
+//Copy fonts (Dev-build)
+gulp.task('assets:fonts', function() {
+    return gulp.src(path.src.assets.fonts)
+        .pipe(gulp.dest(path.build.assets.fonts))
 });
 
+//Copy fonts (Prod-build)
+gulp.task('assets:fonts:prod', function() {
+    return gulp.src(path.src.assets.fonts)
+        .pipe(gulp.dest(path.build.assets.fonts))
+});
+
+//Copy other assets (Dev-build)
+gulp.task('assets:other', function() {
+    return gulp.src(path.src.assets.other)
+        .pipe(gulp.dest(path.build.assets.other))
+});
+
+//Copy other assets (Prod-build)
+gulp.task('assets:other:prod', function() {
+    return gulp.src(path.src.assets.other)
+        .pipe(gulp.dest(path.build.assets.other))
+});
 
 //--------------------------------------------------
 
-//Watch
+//Watch Tasks
 gulp.task('watch', function(){
-    watch([path.watch.html], function(event, cb) {
-        gulp.start('html:build');
+    watch([path.watch.pug_core], function(event, cb) {
+        gulp.start('pug_core');
     });
-    watch([path.watch.php], function(event, cb) {
-        gulp.start('php:build');
+
+    watch([path.watch.js_core], function(event, cb) {
+        gulp.start('js_core');
     });
-    watch([path.watch.css], function(event, cb) {
-        gulp.start('css:build');
+
+    watch([path.watch.sass_core], function(event, cb) {
+        gulp.start('sass_core');
     });
-    watch([path.watch.js], function(event, cb) {
-        gulp.start('js:build');
+
+    watch([path.watch.assets.img], function(event, cb) {
+        gulp.start('assets:img');
     });
-    watch([path.watch.img], function(event, cb) {
-        gulp.start('image:build');
+
+    watch([path.watch.assets.fonts], function(event, cb) {
+        gulp.start('assets:fonts');
     });
-    watch([path.watch.fonts], function(event, cb) {
-        gulp.start('fonts:build');
+
+    watch([path.watch.assets.other], function(event, cb) {
+        gulp.start('assets:other');
     });
 });
-
 
 //Clean build folder
 gulp.task('clean', function (cb) {
@@ -228,16 +264,26 @@ gulp.task('clean', function (cb) {
 //--------------------------------------------------
 
 
-//Build Task
-gulp.task('build', [
-    'clean',
-    'html:build',
-    'php:build',
-    'js:build',
-    'css:build',
-    'fonts:build',
-    'image:build'
-]);
+//Dev-build Task
+gulp.task('build:dev', gulp.parallel(
+    'pug_core',
+    'js_core',
+    'sass_core',
+    'assets:img',
+    'assets:fonts',
+    'assets:other'
+));
 
-//Final Task to start all
-gulp.task('default', ['build', 'webserver', 'watch']);
+//Prod-build Task
+gulp.task('build:prod', gulp.parallel(
+    'pug_core:prod',
+    'js_core:prod',
+    'sass_core:prod',
+    'assets:img:prod',
+    'assets:fonts:prod',
+    'assets:other:prod'
+));
+
+//Final Task
+gulp.task('dev', gulp.series('clean', 'build:dev', 'webserver', 'watch'));
+gulp.task('prod', gulp.series('clean', 'build:prod', 'webserver'));

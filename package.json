@@ -1,6 +1,6 @@
 {
   "name": "gencode-framework",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "gencode-framework",
   "main": "index.js",
   "scripts": {
@@ -10,12 +10,14 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "latest",
+    "rimraf": "latest",
     "css-mqpacker": "latest",
-    "gulp": "3.9.1",
+    "gulp": "4.0.0",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "latest",
     "gulp-csso": "latest",
     "gulp-htmlhint": "latest",
+    "gulp-pug": "latest",
     "gulp-imagemin": "latest",
     "gulp-plumber": "latest",
     "gulp-pngquant": "latest",
@@ -26,7 +28,6 @@
     "gulp-sourcemaps": "latest",
     "gulp-uglifyes": "latest",
     "gulp-wait": "latest",
-    "gulp-watch": "latest",
-    "rimraf": "latest"
+    "gulp-watch": "latest"
   }
 }
