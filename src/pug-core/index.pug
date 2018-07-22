@@ -1,3 +1,4 @@
+//include partials/php/before.php
 doctype html
 html
     head
@@ -12,8 +13,12 @@ html
         script(type='text/javascript' src='js/app.js')
         title Simple title
 
+        //include partials/php/head.php
+
     body.t-default.p-home
-        h3 WebServer started!
-        h3 Watch started!
-        h3 Gencode Framework started!
-        h3 Let's coding!
+
+        include partials/header
+
+        include partials/footer
+
+        

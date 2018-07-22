@@ -8,6 +8,6 @@ $( document ).ready(function() {
         //= components/abstract/anchor.js
 
     // Import components
-        //= components/c-btn.js
+        //= components/btn.js
 
 });

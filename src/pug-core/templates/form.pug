@@ -1,10 +1,11 @@
-<form class="order__form c-form" action="" method="post" onsubmit="validateform(this); return false;">
-
-    <div class="c-form__title">
-        <h2>Заголовок формы</h2>
-    </div>
+form.c-form.order__form(
+    action=""
+    method="post"
+    onsubmit="validateform(this); return false;"
+)
 
     //<input type="hidden" name="Lead[offer]" value="bormental">
+    //<input type="hidden" name="Lead[info]">
     //<input class="cityInput" value="<?=$_GET['city']?>" name="Lead[city]" type="hidden">
     //<?php echo empty($sessiondata["click"])?'':'<input type="hidden" name="Lead[click]" value="'.$sessiondata["click"].'" />'; ?>
     //<input type="hidden" name="Lead[landing_id]" value="<?php echo $landings_id; ?>">
@@ -14,40 +15,50 @@
     //<input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
     //<input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
     //<input type="hidden" name="Lead[wmkey]" value="<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>">
+    
+    .c-form__header
+        h6.header__text.
+            <b>Узнайте подробности и подберите диету</b>
+            со специалистами центра снижения веса
+            Елены Малышевой
 
-    <div class="c-form__row--2">
-        <div class="c-form__block">
-            <label for="name">Ваше имя</label>
-            <input class="c-input" id="name" type="text" name="Lead[name]">
-        </div>
+    .c-form__content
+        label.c-form__block Рост
+            input.c-input(
+                type="number"
+                name="Lead[height]"
+                placeholder='см'
+            )
+    
+        label.c-form__block Вес
+            input.c-input(
+                type="number"
+                name="Lead[weight]"
+                placeholder='кг'
+            )
 
-        <div class="c-form__block">
-            <label for="phone">Ваш телефон</label>
-            <input class="c-input" id="phone" type="tel" name="Lead[phone]" pattern="(\+?\d[- .]*){7,13}">
-        </div>
-    </div>
+        label.c-form__block Возраст
+            input.c-input(
+                type="number"
+                name="Lead[age]"
+                placeholder='лет'
+            )
 
-    <div class="c-form__row--3">
-        <div class="c-form__block">
-            <label for="height">Ваш рост</label>
-            <input class="c-input" id="height" type="number" name="Lead[height]">
-        </div>
+        label.c-form__block Ваше имя
+            input.c-input(
+                type="text"
+                name="Lead[name]"
+                placeholder='Например, Екатерина'
+            )
+
+        label.c-form__block Ваш телефон
+            input.c-input(
+                type="tel"
+                name="Lead[phone]"
+                placeholder='8(ХХХ) ХХХ - ХХ - ХХ'
+            )
         
-        <div class="c-form__block">
-            <label for="weight">Ваш вес</label>
-            <input class="c-input" id="weight" type="number" name="Lead[weight]">
-        </div>
-        
-        <div class="c-form__block">
-            <label for="age">Ваш возраст</label>
-            <input class="c-input" id="age" type="number" name="Lead[age]">
-        </div>
-    </div>
-
-    <input class="c-btn c-form__btn" type="submit" value="ЗАПИСАТЬСЯ">
-
-    <div class="c-form__footer">
-        <p class="footer__text">Текст в футере</p>
-    </div>
-
-</form>
+        input.c-btn.c-btn--red.c-form__btn(
+            type="submit"
+            value='ЗАПИСАТСЬЯ'
+        )

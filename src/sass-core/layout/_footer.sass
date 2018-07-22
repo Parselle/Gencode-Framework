@@ -1,13 +1,16 @@
 
 .footer
-    @include flex(column, center, center)
+    padding: 40px 0
     width: 100%
-    padding: 40px 20px
-    text-align: center
     background: #e8e8e8
 
-    p
-        max-width: 570px
+    .wrap
+        display: grid
+        grid-template-columns: minmax(auto, 570px)
+        gap: 15px
+        justify-content: center
+
+    &__text
         text-align: center
         font-size: 14px
         line-height: 18px

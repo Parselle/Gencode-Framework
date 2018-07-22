@@ -14,11 +14,12 @@ const gulp = require('gulp'),
 
     htmlhint = require('gulp-htmlhint'),
     pug = require('gulp-pug'),
+    htmlbeautify = require('gulp-html-beautify'),
 
     sass = require('gulp-sass'),
     postcss = require('gulp-postcss'),
-    autoprefixer = require('gulp-autoprefixer'),
     mqpacker = require('css-mqpacker'),
+    autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
     pxrem = require('gulp-px-to-rem'),
 
@@ -109,6 +110,7 @@ gulp.task('pug_core:prod', function () {
         .pipe(htmlhint()) //Validate html
         .pipe(plumber.stop()) //Stop error handler
         .pipe(pug())
+        .pipe(htmlbeautify())
         .pipe(gulp.dest(path.build.pug_core)) //Past to build folder
 });
 
@@ -220,32 +222,32 @@ gulp.task('assets:other:prod', function() {
 
 //Watch Tasks
 gulp.task('watch', function(){
-    gulp.watch([path.watch.pug_core], gulp.series(
+    watch([path.watch.pug_core], gulp.series(
         'pug_core',
         reload
     ));
 
-    gulp.watch([path.watch.js_core], gulp.series(
+    watch([path.watch.js_core], gulp.series(
         'js_core',
         reload
     ));
 
-    gulp.watch([path.watch.sass_core], gulp.series(
+    watch([path.watch.sass_core], gulp.series(
         'sass_core',
         reload
     ));
 
-    gulp.watch([path.watch.assets.img], gulp.series(
+    watch([path.watch.assets.img], gulp.series(
         'assets:img',
         reload
     ));
 
-    gulp.watch([path.watch.assets.fonts], gulp.series(
+    watch([path.watch.assets.fonts], gulp.series(
         'assets:fonts',
         reload
     ));
 
-    gulp.watch([path.watch.assets.other], gulp.parallel(
+    watch([path.watch.assets.other], gulp.parallel(
         'assets:other',
         reload
     ));

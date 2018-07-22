@@ -1,0 +1,49 @@
+
+
+.c-form
+    border: 5px solid red
+    display: grid
+    grid-template-columns: minmax(270px, 430px)
+    margin-bottom: 20px
+
+    &__header
+        width: 100%
+        padding: 15px 10px
+        background: red
+        text-align: center
+
+        *
+            color: white
+
+    &__content
+        width: 100%
+        padding: 15px 30px
+        display: grid
+        grid-template-columns: repeat(3, minmax(40px, 113px))
+        gap: 15px
+
+    &__block
+        display: grid
+        grid-template-columns: minmax(40px, 113px)
+        text-align: left
+        gap: 5px
+
+        &:nth-of-type(4),
+        &:nth-of-type(5),
+            grid-column: 1 / -1
+            grid-template-columns: 100%
+
+    &__btn
+        grid-column: 1 / -1
+        justify-self: center
+
+    
+.c-input
+    min-height: 41px
+    border: 1px solid rgb(209, 209, 209)
+    padding: 5px 10px
+    outline: none
+
+    &:hover,
+    &:focus
+        border-color: red

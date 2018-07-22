@@ -19,12 +19,12 @@
     &:focus 
         @content;
 
-@mixin when-inside($context)
-    #{$context} &
-      @content
+@mixin media-mx($width)
+    @media screen and (max-width: $width)
+        @content
 
-@mixin media($width, $type: max)
-    @media screen and (#{$type}-width: $width)
+@mixin media-mn($width)
+    @media screen and (min-width: $width)
         @content
 
 
