@@ -1,6 +1,6 @@
 {
   "name": "gencode-framework",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "gencode-framework",
   "main": "index.js",
   "scripts": {
