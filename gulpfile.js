@@ -17,7 +17,6 @@ const gulp = require('gulp'),
     htmlbeautify = require('gulp-html-beautify'),
 
     sass = require('gulp-sass'),
-    postcss = require('gulp-postcss'),
     mqpacker = require('css-mqpacker'),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
@@ -154,17 +153,12 @@ gulp.task('sass_core', function () {
 //Merge Sass files (Prod-build)
 gulp.task('sass_core:prod', function () {
 	
-	let plugins = [  //Init postcss plugins
-	    mqpacker //Merge same @media
-	];
-	
     return gulp.src(path.src.sass_core) //Choose main.sass
         .pipe(plumber()) //Run error handler
         .pipe(wait(500))
         .pipe(sourcemaps.init()) //Initializing sourcemap
         .pipe(sass()) //Compilation
         .pipe(autoprefixer()) //Add prefixes
-        .pipe(postcss(plugins))  //Run postcss plugins
         .pipe(csso()) //Minify and optimize css
         .pipe(pxrem({rootPX: 16})) // Convert PX to REM
         .pipe(sourcemaps.write())  //Write Maps
