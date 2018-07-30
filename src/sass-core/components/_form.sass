@@ -1,15 +1,12 @@
 
-
 .c-form
-    border: 5px solid red
+    max-width: 300px
     display: grid
-    grid-template-columns: minmax(270px, 430px)
-    margin-bottom: 20px
 
     &__header
         width: 100%
         padding: 15px 10px
-        background: red
+        background: rgba(0, 0, 0, 0.5)
         text-align: center
 
         *
@@ -17,18 +14,19 @@
 
     &__content
         width: 100%
-        padding: 15px 30px
         display: grid
-        grid-template-columns: repeat(3, minmax(40px, 113px))
-        gap: 15px
+        grid-template-columns: repeat(3, minmax(40px, 90px))
+        grid-gap: 15px
+        padding: 10px 0
 
     &__block
         display: grid
-        grid-template-columns: minmax(40px, 113px)
+        grid-template-columns: minmax(40px, 90px)
+        color: rgba(0, 0, 0, 0.5)
         text-align: left
-        gap: 5px
+        grid-gap: 5px
 
-        &:nth-of-type(4),
+        &:nth-of-type(1),
         &:nth-of-type(5),
             grid-column: 1 / -1
             grid-template-columns: 100%
@@ -39,11 +37,21 @@
 
     
 .c-input
-    min-height: 41px
-    border: 1px solid rgb(209, 209, 209)
+    width: auto
+    min-height: 44px
+    border: none
+    background: rgba(0, 0, 0, 0.2)
     padding: 5px 10px
     outline: none
 
     &:hover,
     &:focus
-        border-color: red
+        background: rgba(0, 0, 0, 0.3)
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button
+        -webkit-appearance: none
+        margin: 0
+    
+    &[type='number']
+        -moz-appearance: textfield

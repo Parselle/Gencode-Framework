@@ -23,6 +23,13 @@ form.c-form.order__form(
             Елены Малышевой
 
     .c-form__content
+        label.c-form__block Ваше имя
+            input.c-input(
+                type="text"
+                name="Lead[name]"
+                placeholder='Екатерина'
+            )
+
         label.c-form__block Рост
             input.c-input(
                 type="number"
@@ -44,13 +51,6 @@ form.c-form.order__form(
                 placeholder='лет'
             )
 
-        label.c-form__block Ваше имя
-            input.c-input(
-                type="text"
-                name="Lead[name]"
-                placeholder='Например, Екатерина'
-            )
-
         label.c-form__block Ваш телефон
             input.c-input(
                 type="tel"
@@ -60,5 +60,5 @@ form.c-form.order__form(
         
         input.c-btn.c-btn--red.c-form__btn(
             type="submit"
-            value='ЗАПИСАТСЬЯ'
+            value='ЗАПИСАТЬСЯ'
         )

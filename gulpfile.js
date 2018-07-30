@@ -17,7 +17,6 @@ const gulp = require('gulp'),
     htmlbeautify = require('gulp-html-beautify'),
 
     sass = require('gulp-sass'),
-    mqpacker = require('css-mqpacker'),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
     pxrem = require('gulp-px-to-rem'),
