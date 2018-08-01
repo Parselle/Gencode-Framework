@@ -1,15 +1,12 @@
-
 // Import vendor libraries
-    //= vendor/jquery.min.js
-    //= vendor/jquery.maskedinput.js
+//= vendor/jquery.min.js
+//= vendor/jquery.maskedinput.js
 
 $( document ).ready(function() {
+// Import abstract
+//= abstract/anchor.js
+//= abstract/maskedinput.js
 
-    // Import abstract
-        //= components/abstract/anchor.js
-        //= components/abstract/maskedinput.js
-
-    // Import components
-        //= components/btn.js
-
+// Import components
+//= components/btn.js
 });
