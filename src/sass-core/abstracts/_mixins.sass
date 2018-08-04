@@ -1,30 +1,33 @@
+=flex($dir, $justify, $align)
+	display: flex
+	flex-direction: $dir
+	justify-content: $justify
+	align-items: $align
 
-@mixin flex($dir, $justify, $align)
-    display: flex
-    flex-direction: $dir
-    justify-content: $justify
-    align-items: $align
+=font-preset($size, $weight, $color, $lh: null, $ls: null, $font: null)
+	font-family: $font
+	font-size: $size
+	font-weight: $weight
+	color: $color
+	line-height: $lh
+	letter-spacing: $ls
 
-@mixin font-preset($size, $weight, $color, $lh: null, $ls: null, $font: null)
-    font-family: $font
-    font-size: $size
-    font-weight: $weight
-    color: $color
-    line-height: $lh
-    letter-spacing: $ls
+=mod($mod-name)
+	&[class*=#{$mod-name}]
+		@content
 
-@mixin on-event()
-    &:hover,
-    &:active,
-    &:focus 
-        @content;
+=on-event()
+	&:hover,
+	&:active,
+	&:focus 
+		@content
 
-@mixin media-mx($width)
-    @media screen and (max-width: $width)
-        @content
+=media-mx($width)
+	@media screen and (max-width: $width)
+		@content
 
-@mixin media-mn($width)
-    @media screen and (min-width: $width)
-        @content
+=media-mn($width)
+	@media screen and (min-width: $width)
+		@content
 
 

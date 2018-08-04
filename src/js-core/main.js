@@ -1,5 +1,4 @@
 // Import vendor libraries
-//= vendor/jquery.min.js
 //= vendor/jquery.maskedinput.js
 
 $( document ).ready(function() {

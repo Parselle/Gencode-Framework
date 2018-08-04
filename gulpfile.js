@@ -143,7 +143,11 @@ gulp.task('sass_core', function () {
 		.pipe(plumber()) //Run error handler
 		.pipe(wait(500))
 		.pipe(sass()) //Compilation
-		.pipe(autoprefixer()) //Add prefixes
+		.pipe(autoprefixer({  //Add prefixes
+			grid: true,
+			browsers: ['last 50 versions', '>1%'],
+			cascade: false
+		}))
 		.pipe(pxrem({rootPX: 16})) // Convert PX to REM
 		.pipe(plumber.stop()) //Stop error handler
 		.pipe(gulp.dest(path.build.sass_core)); //Past to build folder
@@ -157,7 +161,11 @@ gulp.task('sass_core:prod', function () {
 		.pipe(wait(500))
 		.pipe(sourcemaps.init()) //Initializing sourcemap
 		.pipe(sass()) //Compilation
-		.pipe(autoprefixer()) //Add prefixes
+		.pipe(autoprefixer({  //Add prefixes
+			grid: true,
+			browsers: ['last 50 versions', '>1%'],
+			cascade: false
+		}))
 		.pipe(csso()) //Minify and optimize css
 		.pipe(pxrem({rootPX: 16})) // Convert PX to REM
 		.pipe(sourcemaps.write())  //Write Maps

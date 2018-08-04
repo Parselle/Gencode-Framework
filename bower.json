@@ -3,18 +3,17 @@
   "description": "gencode-framework",
   "main": "index.js",
   "authors": [
-    "parselledev@gmail.com"
+	"parselledev@gmail.com"
   ],
   "license": "ISC",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+	"**/.*",
+	"node_modules",
+	"bower_components",
+	"test",
+	"tests"
   ],
   "dependencies": {
-    "jquery": "3.1.1",
-    "jquery.maskedinput": "latest"
+	"jquery.maskedinput": "latest"
   }
 }

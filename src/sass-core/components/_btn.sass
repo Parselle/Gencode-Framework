@@ -1,22 +1,104 @@
+//Settings
+//--padding
+$btn-padding-small: 10px 15px !default
+$btn-padding-normal: 12px 17px !default
+$btn-padding-medium: 14px 22px !default
+$btn-padding-large: 16px 25px !default
+
+//--colros
+$btn-color-primary: $color-primary !default
+$btn-color-success: $color-success !default
+
+//--font-size
+$btn-fs-small: 14px !default
+$btn-fs-normal: 15px !default
+$btn-fs-medium: 16px !default
+$btn-fs-large: 18px !default
+
+//Animations
+@keyframes pulse
+	0%
+		opacity: 1
+	50%
+		opacity: 0.6
+	100%
+		opacity: 1	
 
 .c-btn
-    display: grid
-    justify-content: center
-    width: 180px
-    padding: 16px 10px
-    color: white
-    font-size: 18px
-    font-weight: bold
-    border-radius: 10px
-    border: none
-    cursor: pointer
-    outline: none
-    background: lightgrey
-    background-size: auto 200px
-    text-decoration: none
-    transition: 0.5s
+	display: flex
+	justify-items: center
+	justify-content: center
+	align-items: center
+	color: white
+	font-weight: bold
+	text-decoration: none
+	text-align: center
+	border-radius: 5px
+	border: none
+	cursor: pointer
+	outline: none
+	background: $btn-color-primary
+	transition: 0.15s
 
-    &:hover
-        background-position: bottom
-    &:active
-        background-position: bottom
+	+on-event
+		background: darken($btn-color-primary, 20%)
+
+	&:active
+		transform: scale(0.9)
+
+	//Size
+	+mod('--small')
+		width: auto
+		padding: $btn-padding-small
+		font-size: $btn-fs-small
+
+	+mod('--normal')
+		width: auto
+		padding: $btn-padding-normal
+		font-size: $btn-fs-normal
+
+	+mod('--medium')
+		width: auto
+		padding: $btn-padding-medium
+		font-size: $btn-fs-medium
+
+	+mod('--large')
+		width: auto
+		padding: $btn-padding-large
+		font-size: $btn-fs-large
+
+	+mod('--wide')
+		width: 100%
+
+	//Type
+	+mod('--link')
+		color: $color-grey-dark
+		background: white
+		border: 1px solid $color-grey-light
+
+		+on-event
+			border: 1px solid $color-primary
+			color: $color-primary
+
+	+mod('--success')
+		$btn-color-primary: $btn-color-success
+		background: $btn-color-primary
+
+		+on-event
+			background: darken($btn-color-primary, 20%)
+
+	+mod('--pulse')
+		animation: 0.8s pulse infinite
+
+		+on-event
+			animation: none
+
+	//Condition
+	+mod('--disabled')
+		opacity: 0.5
+
+		+on-event
+			transform: none
+			cursor: not-allowed
+
+		

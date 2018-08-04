@@ -1,40 +1,40 @@
 {
   "name": "gencode-framework",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "gencode-framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "parselledev@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "latest",
-    "babel-preset-env": "latest",
-    "browser-sync": "latest",
-    "eslint": "^5.2.0",
-    "gulp": "4.0.0",
-    "gulp-autoprefixer": "latest",
-    "gulp-babel": "latest",
-    "gulp-csso": "latest",
-    "gulp-html-beautify": "latest",
-    "gulp-htmlhint": "latest",
-    "gulp-imagemin": "latest",
-    "gulp-plumber": "latest",
-    "gulp-pngquant": "latest",
-    "gulp-postcss": "latest",
-    "gulp-pug": "latest",
-    "gulp-px-to-rem": "latest",
-    "gulp-rigger": "latest",
-    "gulp-sass": "latest",
-    "gulp-sourcemaps": "latest",
-    "gulp-uglifyes": "latest",
-    "gulp-wait": "latest",
-    "gulp-watch": "latest",
-    "rimraf": "latest"
+	"babel-core": "latest",
+	"babel-preset-env": "latest",
+	"browser-sync": "latest",
+	"eslint": "^5.2.0",
+	"gulp": "4.0.0",
+	"gulp-autoprefixer": "latest",
+	"gulp-babel": "latest",
+	"gulp-csso": "latest",
+	"gulp-html-beautify": "latest",
+	"gulp-htmlhint": "latest",
+	"gulp-imagemin": "latest",
+	"gulp-plumber": "latest",
+	"gulp-pngquant": "latest",
+	"gulp-postcss": "latest",
+	"gulp-pug": "latest",
+	"gulp-px-to-rem": "latest",
+	"gulp-rigger": "latest",
+	"gulp-sass": "latest",
+	"gulp-sourcemaps": "latest",
+	"gulp-uglifyes": "latest",
+	"gulp-wait": "latest",
+	"gulp-watch": "latest",
+	"rimraf": "latest"
   },
   "dependencies": {
-    "gulp-cli": "^2.0.1",
-    "ig": "0.0.5"
+	"gulp-cli": "^2.0.1",
+	"ig": "0.0.5"
   }
 }

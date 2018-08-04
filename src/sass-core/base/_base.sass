@@ -1,47 +1,14 @@
-
-*
-    transition: all 0.2s
-
 *,
 *:before,
 *:after
-    box-sizing: inherit
+	box-sizing: border-box
 
 body
-    font-size: $font-size
-
-    &.active
-        &::after
-            content: ''
-            width: 100%
-            height: 100%
-            display: flex
-            position: fixed
-            top: 0
-            background: rgba(0, 0, 0, 0.5)
-            pointer-events: none
+	font-size: $font-size
 
 .wrap
-    display: grid
-    width: 100%
-    max-width: 1170px
-    margin: 0 auto
-    padding: 0 15px
-
-// Code
-
-pre
-    overflow: auto
-
-code
-    background: lighten(lightgray, 6.4%)
-    border: 1px solid lightgray
-    font-size: 90%
-    margin: 0 .2rem
-    padding: .2rem .5rem
-    white-space: nowrap
-
-pre > code
-    display: block
-    padding: 1rem 1.5rem
-    white-space: pre
+	display: grid
+	width: 100%
+	max-width: 1200px
+	margin: 0 auto
+	padding: 0 15px
