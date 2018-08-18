@@ -1,0 +1,53 @@
+.c-slider
+	display: grid
+	grid-template-columns: 60px 370px 60px
+	align-items: center
+
+	+media-mx(768px)
+		grid-template-columns: 0px 290px 1px
+
+
+	&__arrow-prev,
+	&__arrow-next
+		display: block
+		width: 60px
+		height: 60px
+		background: grey url('../img/arrow.svg') center no-repeat
+		border-radius: 50%
+		transition: all 0.2s
+
+		+on-event
+			transform: scale(0.9)
+			background-color: darken(grey, 10%)
+
+	&__arrow-prev
+		+media-mx(768px)
+			z-index: 10
+			opacity: 0.7
+			border-radius: 0 50% 50% 0
+
+	&__arrow-next
+		transform: rotate(180deg)
+
+		+media-mx(768px)
+			margin-left: -60px
+			z-index: 10
+			opacity: 0.7
+			border-radius: 0 50% 50% 0
+
+		+on-event
+			transform: rotate(180deg) scale(0.9)
+
+	&__view
+		display: grid
+		justify-items: center
+	
+	&__item
+		display: none
+		border: 5px solid grey
+		background: white
+		border-radius: 5px
+		box-shadow: $shadow-main
+
+		&.active
+			display: grid

@@ -4,17 +4,17 @@ form.c-form.c-form--small.order__form(
 	onsubmit='validateform(this); return false;'
 )
 
-	//<input type='hidden' name='Lead[offer]' value='bormental'>
-	//<input type='hidden' name='Lead[info]'>
-	//<input class='cityInput' value='<?=$_GET['city']?>' name='Lead[city]' type='hidden'>
-	//<?php echo empty($sessiondata['click'])?'':'<input type='hidden' name='Lead[click]' value=''.$sessiondata['click'].'' />'; ?>
-	//<input type='hidden' name='Lead[landing_id]' value='<?php echo $landings_id; ?>'>
-	//<input type='hidden' name='Lead[sub1]' value='<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>'>
-	//<input type='hidden' name='Lead[sub2]' value='<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>'>
-	//<input type='hidden' name='Lead[sub3]' value='<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>'>
-	//<input type='hidden' name='Lead[sub4]' value='<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>'>
-	//<input type='hidden' name='Lead[sub5]' value='<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>'>
-	//<input type='hidden' name='Lead[wmkey]' value='<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>'>
+	//<input type="hidden" name="Lead[offer]" value="bormental">
+	//<input type="hidden" name="Lead[info]">
+	//<input class="cityInput" value="<?=$_GET['city']?>" name="Lead[city]" type="hidden">
+	//<?php echo empty($sessiondata["click"])?'':'<input type="hidden" name="Lead[click]" value="'.$sessiondata["click"].'" />'; ?>
+	//<input type="hidden" name="Lead[landing_id]" value="<?php echo $landings_id; ?>">
+	//<input type="hidden" name="Lead[sub1]" value="<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>">
+	//<input type="hidden" name="Lead[sub2]" value="<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>">
+	//<input type="hidden" name="Lead[sub3]" value="<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>">
+	//<input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
+	//<input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
+	//<input type="hidden" name="Lead[wmkey]" value="<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>">
 	
 	.c-form__header
 		h6.header__text.
@@ -58,10 +58,15 @@ form.c-form.c-form--small.order__form(
 				placeholder='+7 (XXX) XXX - XX - XX'
 			)
 		
-		input.c-btn.c-btn--large--wide--primary.c-form__btn(
+		input.c-btn.c-btn--main--wide--red--pulse.c-form__btn(
 			type='submit'
 			value='ЗАПИСАТЬСЯ'
 		)
+
+		p.c-form__footer-text.
+			*Программа для женщин от 28 до 65 лет, граждан РФ
+
+/*------------------------------------------------------------------*/
 
 form.c-form.c-form--wide.order__form(
 	action=''
@@ -69,17 +74,17 @@ form.c-form.c-form--wide.order__form(
 	onsubmit='validateform(this); return false;'
 )
 
-	//<input type='hidden' name='Lead[offer]' value='bormental'>
-	//<input type='hidden' name='Lead[info]'>
-	//<input class='cityInput' value='<?=$_GET['city']?>' name='Lead[city]' type='hidden'>
-	//<?php echo empty($sessiondata['click'])?'':'<input type='hidden' name='Lead[click]' value=''.$sessiondata['click'].'' />'; ?>
-	//<input type='hidden' name='Lead[landing_id]' value='<?php echo $landings_id; ?>'>
-	//<input type='hidden' name='Lead[sub1]' value='<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>'>
-	//<input type='hidden' name='Lead[sub2]' value='<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>'>
-	//<input type='hidden' name='Lead[sub3]' value='<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>'>
-	//<input type='hidden' name='Lead[sub4]' value='<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>'>
-	//<input type='hidden' name='Lead[sub5]' value='<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>'>
-	//<input type='hidden' name='Lead[wmkey]' value='<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>'>
+	//<input type="hidden" name="Lead[offer]" value="bormental">
+	//<input type="hidden" name="Lead[info]">
+	//<input class="cityInput" value="<?=$_GET['city']?>" name="Lead[city]" type="hidden">
+	//<?php echo empty($sessiondata["click"])?'':'<input type="hidden" name="Lead[click]" value="'.$sessiondata["click"].'" />'; ?>
+	//<input type="hidden" name="Lead[landing_id]" value="<?php echo $landings_id; ?>">
+	//<input type="hidden" name="Lead[sub1]" value="<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>">
+	//<input type="hidden" name="Lead[sub2]" value="<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>">
+	//<input type="hidden" name="Lead[sub3]" value="<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>">
+	//<input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
+	//<input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
+	//<input type="hidden" name="Lead[wmkey]" value="<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>">
 	
 	.c-form__header
 		h6.header__text.
@@ -102,8 +107,7 @@ form.c-form.c-form--wide.order__form(
 				placeholder='+7 (XXX) XXX - XX - XX'
 			)
 		
-		input.c-btn.c-btn--large--wide--primary.c-form__btn(
+		input.c-btn.c-btn--main--wide--red--pulse.c-form__btn(
 			type='submit'
 			value='ЗАПИСАТЬСЯ'
 		)
-					

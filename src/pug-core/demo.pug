@@ -15,28 +15,17 @@ html(lang='ru')
 
 	body.t-default.p-demo
 		.wrap.buttons
-			h3.wrap__title Buttons: Size
+			h3.wrap__title Button
 
-			a.c-btn.c-btn--small(href="javascript:void(0)") Small
+			a.c-btn.c-btn--main--red(href="javascript:void(0)") Main
 
-			a.c-btn.c-btn--normal(href="javascript:void(0)") Normal
+			a.c-btn.c-btn--main--red--wide(href="javascript:void(0)") Wide
 
-			a.c-btn.c-btn--medium(href="javascript:void(0)") Medium
+			a.c-btn.c-btn--main--red--link(href="javascript:void(0)") Link
 
-			a.c-btn.c-btn--large(href="javascript:void(0)") Large
+			a.c-btn.c-btn--main--red--pulse(href="javascript:void(0)") Pulse
 
-			a.c-btn.c-btn--large--wide(href="javascript:void(0)") Wide
-
-		.wrap.buttons
-			h3.wrap__title Buttons: Types
-
-			a.c-btn.c-btn--medium--link(href="javascript:void(0)") Link
-
-			a.c-btn.c-btn--medium--success(href="javascript:void(0)") Custom (success)
-
-			a.c-btn.c-btn--medium--pulse(href="javascript:void(0)") Pulse
-
-			a.c-btn.c-btn--medium--success--disabled(href="javascript:void(0)") Disabled
+			a.c-btn.c-btn--main--red--disabled(href="javascript:void(0)") Disabled
 
 		.wrap.forms
 			h3.wrap__title Forms: Types
@@ -47,17 +36,17 @@ html(lang='ru')
 				onsubmit='validateform(this); return false;'
 			)
 
-				//<input type='hidden' name='Lead[offer]' value='bormental'>
-				//<input type='hidden' name='Lead[info]'>
-				//<input class='cityInput' value='<?=$_GET['city']?>' name='Lead[city]' type='hidden'>
-				//<?php echo empty($sessiondata['click'])?'':'<input type='hidden' name='Lead[click]' value=''.$sessiondata['click'].'' />'; ?>
-				//<input type='hidden' name='Lead[landing_id]' value='<?php echo $landings_id; ?>'>
-				//<input type='hidden' name='Lead[sub1]' value='<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>'>
-				//<input type='hidden' name='Lead[sub2]' value='<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>'>
-				//<input type='hidden' name='Lead[sub3]' value='<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>'>
-				//<input type='hidden' name='Lead[sub4]' value='<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>'>
-				//<input type='hidden' name='Lead[sub5]' value='<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>'>
-				//<input type='hidden' name='Lead[wmkey]' value='<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>'>
+				//<input type="hidden" name="Lead[offer]" value="bormental">
+				//<input type="hidden" name="Lead[info]">
+				//<input class="cityInput" value="<?=$_GET['city']?>" name="Lead[city]" type="hidden">
+				//<?php echo empty($sessiondata["click"])?'':'<input type="hidden" name="Lead[click]" value="'.$sessiondata["click"].'" />'; ?>
+				//<input type="hidden" name="Lead[landing_id]" value="<?php echo $landings_id; ?>">
+				//<input type="hidden" name="Lead[sub1]" value="<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>">
+				//<input type="hidden" name="Lead[sub2]" value="<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>">
+				//<input type="hidden" name="Lead[sub3]" value="<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>">
+				//<input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
+				//<input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
+				//<input type="hidden" name="Lead[wmkey]" value="<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>">
 				
 				.c-form__header
 					h6.header__text.
@@ -101,52 +90,10 @@ html(lang='ru')
 							placeholder='+7 (XXX) XXX - XX - XX'
 						)
 					
-					input.c-btn.c-btn--large--wide--primary.c-form__btn(
+					input.c-btn.c-btn--main--wide--red--pulse.c-form__btn(
 						type='submit'
 						value='ЗАПИСАТЬСЯ'
 					)
 
-			form.c-form.c-form--wide.order__form(
-				action=''
-				method='post'
-				onsubmit='validateform(this); return false;'
-			)
-
-				//<input type='hidden' name='Lead[offer]' value='bormental'>
-				//<input type='hidden' name='Lead[info]'>
-				//<input class='cityInput' value='<?=$_GET['city']?>' name='Lead[city]' type='hidden'>
-				//<?php echo empty($sessiondata['click'])?'':'<input type='hidden' name='Lead[click]' value=''.$sessiondata['click'].'' />'; ?>
-				//<input type='hidden' name='Lead[landing_id]' value='<?php echo $landings_id; ?>'>
-				//<input type='hidden' name='Lead[sub1]' value='<?php echo isset($_GET['sub1']) ? $_GET['sub1'] : ''; ?>'>
-				//<input type='hidden' name='Lead[sub2]' value='<?php echo isset($_GET['sub2']) ? $_GET['sub2'] : ''; ?>'>
-				//<input type='hidden' name='Lead[sub3]' value='<?php echo isset($_GET['sub3']) ? $_GET['sub3'] : ''; ?>'>
-				//<input type='hidden' name='Lead[sub4]' value='<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>'>
-				//<input type='hidden' name='Lead[sub5]' value='<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>'>
-				//<input type='hidden' name='Lead[wmkey]' value='<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>'>
-				
-				.c-form__header
-					h6.header__text.
-						<b>Узнайте подробности и подберите диету</b>
-						со специалистами центра снижения веса
-						Елены Малышевой
-
-				.c-form__content
-					label.c-form__block Ваше имя
-						input.c-input(
-							type='text'
-							name='Lead[name]'
-							placeholder='Екатерина'
-						)
-
-					label.c-form__block Ваш телефон
-						input.c-input(
-							type='tel'
-							name='Lead[phone]'
-							placeholder='+7 (XXX) XXX - XX - XX'
-						)
-					
-					input.c-btn.c-btn--large--wide--primary.c-form__btn(
-						type='submit'
-						value='ЗАПИСАТЬСЯ'
-					)
-					
+					p.c-form__footer-text.
+						*Программа для женщин от 28 до 65 лет, граждан РФ		

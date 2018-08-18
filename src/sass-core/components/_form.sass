@@ -1,5 +1,7 @@
 .c-form
 	display: grid
+	border: 5px solid $color-danger
+	border-radius: 5px
 	box-shadow: $shadow-main
 
 	&__header
@@ -21,16 +23,20 @@
 	&__block
 		display: grid
 		grid-gap: 5px
-		padding-left: 8px
+		padding-left: 3px
 		color: $color-dark
-		font-weight: bold
+		//font-weight: bold
 		text-align: left
 
 		.c-input
-			margin-left: -8px
+			margin-left: -3px
 
 	&__btn
 		justify-self: center
+
+	&__footer-text
+		grid-column: 1 / -1
+		opacity: 0.6
 
 	+mod('--small')
 		grid-template-columns: minmax(280px, 300px)
@@ -56,13 +62,14 @@
 		grid-template-columns: minmax(280px, 100%)
 		width: 100%
 
-		.c-form__content
-			grid-template-columns: repeat(3, 1fr)
-			align-items: end
+		.c-form
+			&__content
+				grid-template-columns: repeat(3, 1fr)
+				align-items: end
 
-			+media-mx(768px)
-				grid-template-columns: auto
+				+media-mx(768px)
+					grid-template-columns: auto
 
-		.c-form__block
-			display: grid
-			grid-gap: 5px
+			&__block
+				display: grid
+				grid-gap: 5px
