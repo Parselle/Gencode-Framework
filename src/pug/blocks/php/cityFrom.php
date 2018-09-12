@@ -1,0 +1,1 @@
+<?php echo ($_GET['city'] != '' ? ' г. <span class="city2">' . $sessiondata["citieslist"][$_GET['city']]['case2'] . '</span>' : ''); ?>

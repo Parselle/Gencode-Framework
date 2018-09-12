@@ -1,0 +1,60 @@
+.c-timer
+  display: grid
+  grid-template-columns: repeat(4, 70px)
+  grid-gap: 30px
+
+  +media-mx(530px)
+    grid-template-columns: repeat(4, 50px)
+    grid-gap: 20px
+
+  &__block
+    display: grid
+    grid-template-rows: 70px
+    justify-items: center
+    align-items: center
+    grid-gap: 10px 10px
+
+    +media-mx(530px)
+      grid-template-rows: 50px
+      grid-gap: 5px 5px
+
+    &:not(:nth-last-of-type(1))
+      grid-template-columns: 70px 10px
+
+      +media-mx(530px)
+        grid-template-columns: 50px 10px
+
+      &::after
+        content: ':'
+        display: grid
+        width: 10px
+        font-size: 40px
+        grid-column: 2 / 3
+        grid-row: 1 / -1
+        animation: fade 1s linear infinite
+
+        @keyframes fade
+          0%
+            opacity: 1
+          50%
+            opacity: 0
+          100%
+            opacity: 1
+
+    &:nth-of-type(1)
+      .c-timer__number
+        color: $color-danger
+
+  &__number
+    display: grid
+    align-items: center
+    justify-items: center
+    width: 100%
+    height: 100%
+    border: 2px solid $color-grey
+
+    +media-mx(530px)
+      font-size: 30px
+
+  &__desc
+    font-size: 14px

@@ -1,0 +1,51 @@
+//Animations
+@keyframes pulse
+  0%
+    opacity: 1
+  50%
+    opacity: 0.6
+  100%
+    opacity: 1	
+
+.c-btn
+  display: flex
+  justify-items: center
+  justify-content: center
+  align-items: center
+  text-decoration: none
+  text-align: center
+  cursor: pointer
+  outline: none
+  transition: 0.15s
+
+  //Size
+  +mod('--main')
+    width: 270px
+    padding: 16px 25px
+    border-radius: 5px
+    border: none
+    font-size: 18px
+    font-weight: bold
+
+    +on-event
+      transform: translateY(-2px)
+
+  //Color
+  +mod('--red')
+    background: $color-danger
+    color: white
+
+    +on-event
+      background: darken($color-danger, 10%)
+
+  //Extensions
+  +mod('--wide')
+    width: 100%
+
+  +mod('--pulse')
+    animation: 1.2s pulse infinite
+
+    +on-event
+      animation: none
+
+    

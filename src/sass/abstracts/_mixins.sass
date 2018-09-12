@@ -1,0 +1,33 @@
+=flex($dir, $justify, $align)
+  display: flex
+  flex-direction: $dir
+  justify-content: $justify
+  align-items: $align
+
+=font-preset($size, $weight, $color, $lh: null, $ls: null, $font: null)
+  font-family: $font
+  font-size: $size
+  font-weight: $weight
+  color: $color
+  line-height: $lh
+  letter-spacing: $ls
+
+=mod($mod-name)
+  &[class*='#{$mod-name}']
+    @content
+
+=on-event()
+  &:hover,
+  &:active,
+  &:focus 
+    @content
+
+=media-mx($width)
+  @media screen and (max-width: $width)
+    @content
+
+=media-mn($width)
+  @media screen and (min-width: $width)
+    @content
+
+

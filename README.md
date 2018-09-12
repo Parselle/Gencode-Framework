@@ -1,3 +1,3 @@
 Developed by Gencode-Framework
-v1.1.0 (Aug 2018)
+v1.2.0 (Sep 2018)
 https://github.com/Parselle/Gencode-Framework
