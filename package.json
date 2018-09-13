@@ -1,6 +1,6 @@
 {
   "name": "gencode-framework",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "gencode-framework",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,6 @@
     "@babel/preset-env": "^7.0.0",
     "autoprefixer": "^9.1.5",
     "browser-sync": "^2.24.7",
-    "css-mqpacker": "^7.0.0",
     "eslint": "^5.5.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",

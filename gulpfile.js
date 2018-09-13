@@ -17,7 +17,6 @@ const gulp = require('gulp'),
   postcss = require('gulp-postcss'),
   pxtorem = require('postcss-pxtorem'),
   autoprefixer = require('autoprefixer'),
-  mqpacker = require('css-mqpacker'),
   cssClean = require('postcss-clean'),
 
   pug = require('gulp-pug'),
@@ -73,7 +72,6 @@ const postcssPlugins = [
     grid: true,
     cascade: false
   }),
-  mqpacker(),
   cssClean()
 ];
 
@@ -189,13 +187,22 @@ gulp.task('assets:media:prod', function() {
 
 //--------------------------------------------------
 
-gulp.task('watch', function(){
+gulp.task('watch:dev', function(){
   watch([path.watch.pug], gulp.series('pug', reload));
   watch([path.watch.js], gulp.series('js', reload));
-  watch([path.watch.sass], gulp.series('sass', reload));
+  watch([path.watch.sass], {readDelay: 500}, gulp.series('sass', reload));
   watch([path.watch.assets.img], gulp.series('assets:img', reload));
   watch([path.watch.assets.fonts], gulp.series('assets:fonts', reload));
   watch([path.watch.assets.media], gulp.parallel('assets:media', reload));
+});
+
+gulp.task('watch:prod', function(){
+  watch([path.watch.pug], gulp.series('pug:prod', reload));
+  watch([path.watch.js], gulp.series('js:prod', reload));
+  watch([path.watch.sass], {readDelay: 500}, gulp.series('sass:prod', reload));
+  watch([path.watch.assets.img], gulp.series('assets:img:prod', reload));
+  watch([path.watch.assets.fonts], gulp.series('assets:fonts:prod', reload));
+  watch([path.watch.assets.media], gulp.parallel('assets:media:prod', reload));
 });
 
 gulp.task('clean', function (cb) {
@@ -228,10 +235,10 @@ gulp.task('prod', gulp.series('clean', 'build:prod'));
 
 gulp.task('dev-server', gulp.series('clean', 'build:dev', gulp.parallel(
   'webserver',
-  'watch'
+  'watch:dev'
 )));
 
 gulp.task('prod-server', gulp.series('clean', 'build:prod', gulp.parallel(
   'webserver',
-  'watch'
+  'watch:prod'
 )));
