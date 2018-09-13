@@ -9,9 +9,7 @@ const gulp = require('gulp'),
   watch = require('gulp-watch'),
   sourcemaps = require('gulp-sourcemaps'),
 
-  babel = require('gulp-babel'),
-  concat = require('gulp-concat'),
-  uglify = require('gulp-uglify'),
+  webpackStream = require('webpack-stream'),
 
   sass = require('gulp-sass'),
   postcss = require('gulp-postcss'),
@@ -37,7 +35,7 @@ const path = {
 
   src: {
     pug: 'src/pug/*.pug',
-    js: ['src/js/abstract/**/*.js', 'src/js/components/**/*.js'],
+    js: 'src/js/main.js',
     sass: 'src/sass/main.sass',
     assets: {
       img: 'src/assets/img/**/*.*',
@@ -108,23 +106,50 @@ gulp.task('pug:prod', function () {
 gulp.task('js', function () {
   return gulp.src(path.src.js)
     .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(babel({
-      presets: ['@babel/env']
+    .pipe(webpackStream({
+      devtool: 'source-map',
+      mode: 'development',
+      output: {
+        filename: 'main.js',
+      },
+      module: {
+        rules: [
+          {
+            test: /\.(js)$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        ]
+      }
     }))
-    .pipe(concat('main.js'))
-    .pipe(sourcemaps.write())
     .pipe(plumber.stop())
     .pipe(gulp.dest(path.build.js));
 });
 
 gulp.task('js:prod', function () {
   return gulp.src(path.src.js)
-    .pipe(concat('main.js'))
-    .pipe(babel({
-      presets: ['@babel/env']
+    .pipe(webpackStream({
+      mode: 'production',
+      output: {
+        filename: 'main.js',
+      },
+      module: {
+        rules: [
+          {
+            test: /\.(js)$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        ]
+      }
     }))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest(path.build.js));
 });
 

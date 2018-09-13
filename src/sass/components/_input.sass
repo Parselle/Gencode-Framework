@@ -1,17 +1,30 @@
-.c-input
+.c-input,
+select.c-input
   width: auto
   min-height: 50px
-  padding: 5px 10px
+  padding: 10px 15px
   border: 1px solid $color-grey-light
-  border-radius: 5px
   outline: none
   transition: all 0.2s
+  // Disable default styling on ff and webkit
+  -moz-appearance: none
+  -webkit-appearance: none
+  // Disable ugly ass outline on firefox 
+  &:-moz-focusring
+    color: transparent
+    text-shadow: 0 0 0 #000
+  &::-ms-expand
+    display: none
 
   +on-event
     transform: translateY(-2px)
     box-shadow: $shadow-main
+    border-color: $color-danger
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button
     -webkit-appearance: none
     margin: 0
+
+select
+  cursor: pointer

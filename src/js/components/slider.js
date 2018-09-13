@@ -1,4 +1,4 @@
-class Slider {
+export default class Slider {
   constructor(obj) {
     this.obj = obj;
     this.curSlide;
@@ -8,12 +8,12 @@ class Slider {
 
   moveTo(direction) {
     this.curSlide = this.obj.querySelector('.current');
-    let prevSlide = this.curSlide.previousSibling;
-    let nextSlide = this.curSlide.nextSibling;
+    let prevSlide = this.curSlide.previousElementSibling;
+    let nextSlide = this.curSlide.nextElementSibling;
 
     switch(direction) {
     case 'next':
-      if (!nextSlide) return false;
+      if (!nextSlide) break;
 
       if (prevSlide) {
         prevSlide.classList.remove('prev');
@@ -23,8 +23,8 @@ class Slider {
       this.curSlide.classList.remove('current');
       this.curSlide.classList.add('prev');
 
-      if (nextSlide.nextSibling) {
-        let nextSecond = nextSlide.nextSibling;
+      if (nextSlide.nextElementSibling) {
+        let nextSecond = nextSlide.nextElementSibling;
         nextSecond.classList.remove('nextHide');
         nextSecond.classList.add('next');
       }
@@ -34,7 +34,7 @@ class Slider {
       break;
 
     case 'prev':
-      if (!prevSlide) return false;			
+      if (!prevSlide) break;			
 
       if (nextSlide) {
         nextSlide.classList.remove('next');
@@ -44,8 +44,8 @@ class Slider {
       this.curSlide.classList.remove('current');
       this.curSlide.classList.add('next');
 
-      if (prevSlide.previousSibling) {
-        let prevSecond = prevSlide.previousSibling;
+      if (prevSlide.previousElementSibling) {
+        let prevSecond = prevSlide.previousElementSibling;
         prevSecond.classList.remove('prevHide');
         prevSecond.classList.add('prev');
       }
@@ -53,6 +53,8 @@ class Slider {
       prevSlide.classList.remove('prev');
       prevSlide.classList.add('current');
       break;
+
+    default: break;
     }
   }
 
@@ -66,6 +68,3 @@ class Slider {
     });
   }
 }
-
-let slider = new Slider(document.querySelector('.js-slider'));
-slider.run();

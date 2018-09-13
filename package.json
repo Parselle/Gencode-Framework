@@ -1,6 +1,6 @@
 {
   "name": "gencode-framework",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "gencode-framework",
   "main": "index.js",
   "scripts": {
@@ -15,23 +15,23 @@
     "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
     "autoprefixer": "^9.1.5",
+    "babel-loader": "^8.0.2",
     "browser-sync": "^2.24.7",
     "eslint": "^5.5.0",
     "gulp": "^4.0.0",
-    "gulp-babel": "^8.0.0",
     "gulp-cli": "^2.0.1",
-    "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^4.1.0",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^8.0.0",
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1",
     "gulp-watch": "^5.0.1",
+    "imask": "^4.0.0",
     "postcss-clean": "^1.1.0",
     "postcss-pxtorem": "^4.0.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "webpack-stream": "^5.1.1"
   },
   "dependencies": {}
 }
