@@ -1,4 +1,4 @@
-form.c-form.c-form--small.order__form(
+form.c-form.c-form.order__form(
   action=''
   method='post'
   onsubmit='validateform(this); return false;'
@@ -16,39 +16,42 @@ form.c-form.c-form--small.order__form(
   //<input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
   //<input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
   //<input type="hidden" name="Lead[wmkey]" value="<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>">
-  
+
   .c-form__header
     h6.header__text.
-      <b>Узнайте подробности и подберите диету</b>
-      со специалистами центра снижения веса
-      Елены Малышевой
+      <b>Оставьте заявку<br>
+      и узнайте подробности</b>
 
   .c-form__content
     label.c-form__block Ваше имя
       input.c-input(
         type='text'
         name='Lead[name]'
+        data-mask='name'
         placeholder='Екатерина'
       )
 
-    label.c-form__block Рост
+    label.c-form__block.c-form__block--1-3 Рост
       input.c-input(
         type='number'
         name='Lead[height]'
+        data-mask='height'
         placeholder='см'
       )
-  
-    label.c-form__block Вес
+
+    label.c-form__block.c-form__block--2-3 Вес
       input.c-input(
         type='number'
         name='Lead[weight]'
+        data-mask='weight'
         placeholder='кг'
       )
 
-    label.c-form__block Возраст
+    label.c-form__block.c-form__block--3-3 Возраст
       input.c-input(
         type='number'
         name='Lead[age]'
+        data-mask='age'
         placeholder='лет'
       )
 
@@ -56,9 +59,10 @@ form.c-form.c-form--small.order__form(
       input.c-input(
         type='tel'
         name='Lead[phone]'
+        data-mask='phone'
         placeholder='+7 (XXX) XXX - XX - XX'
       )
-    
+
     input.c-btn.c-btn--main--wide--red--pulse.c-form__btn(
       type='submit'
       value='ЗАПИСАТЬСЯ'
@@ -67,9 +71,9 @@ form.c-form.c-form--small.order__form(
     p.c-form__footer-text.
       *Программа для женщин от 28 до 65 лет, граждан РФ
 
-/*------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 
-form.c-form.c-form--wide.order__form(
+form#form-2.c-form.c-form--wide.order__form(
   action=''
   method='post'
   onsubmit='validateform(this); return false;'
@@ -87,18 +91,17 @@ form.c-form.c-form--wide.order__form(
   //<input type="hidden" name="Lead[sub4]" value="<?php echo isset($_GET['sub4']) ? $_GET['sub4'] : ''; ?>">
   //<input type="hidden" name="Lead[sub5]" value="<?php echo isset($_GET['sub5']) ? $_GET['sub5'] : ''; ?>">
   //<input type="hidden" name="Lead[wmkey]" value="<?php echo isset($_GET['wmkey']) ? $_GET['wmkey'] : ''; ?>">
-  
+
   .c-form__header
     h6.header__text.
-      <b>Узнайте подробности и подберите диету</b>
-      со специалистами центра снижения веса
-      Елены Малышевой
+      <b>Оставьте заявку и узнайте подробности</b>
 
   .c-form__content
     label.c-form__block Ваше имя
       input.c-input(
         type='text'
         name='Lead[name]'
+          data-mask='name'
         placeholder='Екатерина'
       )
 
@@ -106,10 +109,14 @@ form.c-form.c-form--wide.order__form(
       input.c-input(
         type='tel'
         name='Lead[phone]'
+          data-mask='phone'
         placeholder='+7 (XXX) XXX - XX - XX'
       )
-    
+
     input.c-btn.c-btn--main--wide--red--pulse.c-form__btn(
       type='submit'
       value='ЗАПИСАТЬСЯ'
     )
+
+    p.c-form__footer-text.
+      *Программа для женщин от 28 до 65 лет, граждан РФ

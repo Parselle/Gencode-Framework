@@ -1,27 +1,24 @@
-//Vendor
-import IMask from 'imask'; //Docs https://unmanner.github.io/imaskjs/
-//Components
-//import Slider from './components/slider';
+import SmoothScroll from 'smooth-scroll'; //https://github.com/cferdinandi/smooth-scroll#readme
+import InputMask from './base/InputMask';
+// import Slider from './components/Slider';
+// import Timer from './components/timer';
 
 window.onload = function() {
 
-  //new Slider(document.querySelector('.js-slider')).run();
+  new SmoothScroll('a[href*="#"]', {
+    speed: 800,
+    easing: 'easeInOutCubic',
+    ignore: 'a[data-scroll-ignore]'
+  });
 
-  //Mask for inputs
-  new IMask(document.querySelector('input[name="Lead[name]"]'), {
-    mask: /[А-Яа-я]$/
-  });
-  new IMask(document.querySelector('input[name="Lead[phone]"]'), {
-    mask: '+{7} (000) 000 - 00 - 00'
-  });
-  // new IMask(document.querySelector('input[name="Lead[height]"]'), {
-  //   mask: '000'
-  // });
-  // new IMask(document.querySelector('input[name="Lead[weight]"]'), {
-  //   mask: '000'
-  // });
-  // new IMask(document.querySelector('input[name="Lead[age]"]'), {
-  //   mask: '00'
+  new InputMask().run();
+
+  // document.querySelectorAll('.js-slider').forEach((item) => {
+  //   new Slider(item).run();
   // });
 
+  // document.querySelectorAll('.js-timer').forEach((item) => {
+  //   new Timer(item).run();
+  // });
+  
 };

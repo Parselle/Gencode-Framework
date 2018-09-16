@@ -1,54 +1,56 @@
 <script type="text/javascript">
-  function validateform(form)
-  {
-      var digits_reg = new RegExp("[^0-9]", "g");
-      form.elements["Lead[age]"].value = form.elements["Lead[age]"].value.replace(digits_reg, '');
+  function validateform(form) {
+    var digits_reg = new RegExp('[^0-9]', 'g');
 
+    var nameInput = form.elements['Lead[name]'];
+    if (nameInput.value == '' && nameInput.value.length < 2) {
+      alert('Имя указано неверно!');
+      return false;
+    }
 
-      if (form.elements["Lead[name]"].value == "") {
-          alert("Укажите Имя");
-          return false;
+    var heightInput = form.elements['Lead[height]'];
+    if (heightInput) {
+      heightInput.value = heightInput.value.replace(digits_reg, '');
+      if (heightInput.value < 5) {
+        alert('Рост указан неверно!');
+        return false;
       }
-
-      if (form.elements["Lead[name]"].value.length < 2) {
-          alert("Слишком короткое Имя (менее 2-х символов)!");
-          return false;
+    }
+    
+    var weightInput = form.elements['Lead[weight]'];
+    if (weightInput) {
+      weightInput.value = weightInput.value.replace(digits_reg, '');
+      if (weightInput.value < 5) {
+        alert('Вес указан неверно!');
+        return false;
       }
-      
-//    	if (form.elements["Lead[weight]"].value < 5){
-//        	alert("Вес указан неверно!");
-//        	return false;
-//    	}
-//
-//    	if (form.elements["Lead[height]"].value < 5) {
-//        	alert("Рост указан неверно!");
-//        	return false;
-//    	}
-//
-//    	if (form.elements["Lead[age]"].value < 5) {
-//        	alert("Возраст указан неверно!");
-//        	return false;
-//    	}
+    }
 
-      if (form.elements["Lead[phone]"].value == "") {
-          alert("Телефон не заполнен. Должен сождержать 10 цифр. Пример: 9123456789 или городской с кодом города 4951234567");
-          return false;
+    var ageInput = form.elements['Lead[age]'];
+    if (ageInput) {
+      ageInput.value = ageInput.value.replace(digits_reg, '');
+      if (ageInput.value < 5) {
+        alert('Возраст указан неверно!');
+        return false;
       }
+    }
 
-      var phone_reg = new RegExp("[^0-9]", "g");
-      form.elements["Lead[phone]"].value = form.elements["Lead[phone]"].value.replace(phone_reg, '');
-      if (form.elements["Lead[phone]"].value.length < 10)
-      {
-          alert("Телефон не заполнен. Должен сождержать 10 цифр. Пример: 9123456789 или городской с кодом города 4951234567");
-          return false;
-      }
-      if (form.elements["Lead[phone]"].value.length > 11)
-      {
-          alert("Телефон не заполнен. Должен сождержать 10 цифр. Пример: 9123456789 или городской с кодом города 4951234567");
-          return false;
-      }
+    var phoneInput = form.elements['Lead[phone]'];
+    var phoneInputValue = phoneInput.value.replace(digits_reg, '');
+    if (
+      phoneInputValue == '' ||
+      phoneInputValue.length < 11 ||
+      phoneInputValue.length > 11
+    ) {
+      alert(
+        'Телефон указан неверно! Должен сождержать 11 цифр. Пример: +7(912)345-67-89 или городской с кодом города +7(495)123-45-67'
+      );
+      return false;
+    } else {
+      phoneInput.value = phoneInputValue;
+    }
 
-      form.submit();
+    form.submit();
   }
 </script>
 
