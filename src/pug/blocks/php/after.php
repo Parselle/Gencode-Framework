@@ -27,7 +27,7 @@
     }
 
     var ageInput = form.elements['Lead[age]'];
-    if (ageInput) {
+    if (ageInput && ageInput.getAttribute('type') != 'hidden') {
       ageInput.value = ageInput.value.replace(digits_reg, '');
       if (ageInput.value < 5) {
         alert('Возраст указан неверно!');
