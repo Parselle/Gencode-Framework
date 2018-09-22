@@ -2,6 +2,8 @@ import SmoothScroll from 'smooth-scroll'; //https://github.com/cferdinandi/smoot
 import InputMask from './base/InputMask';
 // import Slider from './components/Slider';
 // import Timer from './components/timer';
+// import Counter from './components/Counter';
+// import Modal from './components/Modal';
 
 window.onload = function() {
 
@@ -20,5 +22,11 @@ window.onload = function() {
   // document.querySelectorAll('.js-timer').forEach((item) => {
   //   new Timer(item).run();
   // });
+
+  // document.querySelectorAll('.js-counter').forEach((item) => {
+  //   new Counter(item).run();
+  // });
+
+  // new Modal().run();
   
 };
