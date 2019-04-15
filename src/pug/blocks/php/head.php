@@ -1,2 +1,0 @@
-<?php echo empty($sessiondata["click"])?'':'<script src="https://mosclubkrasota.ru/site/clicks/?click='.$sessiondata["click"].'"></script>'; ?>
-<?=empty($sessiondata["landingsscripts"]["inhead"])?'':$sessiondata["landingsscripts"]["inhead"]?>

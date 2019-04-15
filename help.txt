@@ -1,0 +1,20 @@
+
++form('form-1', 's-header__form')
+	+form-header
+		h6.header__text Заголовок формы
+	+form-content
+		+input('Имя', 'text', 'Lead[name]', 'name')
+		+form-group('--3')
+			+input('Рост', 'number', 'Lead[height]', 'height')
+			+input('Вес', 'number', 'Lead[weight]', 'weight')
+			+input('Возраст', 'number', 'Lead[age]', 'age')
+		+input('Телефон', 'tel', 'Lead[phone]', 'phone')
+	+form-btn('Отправить', '--medium--primary--wide--pulse')
+	+form-footer-text(`Футер формы`)
+  
+
+input(label, type, name, mask='')
+
+button('Test btn', '--medium--primary--pulse', 'test__btn')
+
+section(name)

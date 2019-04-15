@@ -1,1 +1,0 @@
-<?php echo $date->format('j')." ".$monthAr[$date->format('n')][1];?>

@@ -1,0 +1,9 @@
+mixin counter(dir, inc, start, speed)
+  .c-counter.js-counter(
+    data-counter-inc=inc
+    data-counter-dir=dir
+    data-counter-speed=speed
+    data-counter-start=start
+  )
+    p.c-counter__text Осталось свободных мест
+    h5.c-counter__number(data-counter="number")= start

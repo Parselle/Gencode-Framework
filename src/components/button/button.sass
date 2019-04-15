@@ -1,0 +1,52 @@
+.c-btn
+  display: grid
+  justify-items: center
+  align-items: center
+  text-decoration: none
+  text-align: center
+  cursor: pointer
+  outline: none
+  transition: 0.15s
+  border: none
+
+  //Size
+  +mod('--medium')
+    width: 100%
+    max-width: 280px
+    padding: 16px 25px
+    border-radius: 5px
+    border: none
+    font-size: 18px
+    font-weight: bold
+
+    +on-event
+      transform: translateY(-2px)
+      animation: none !important
+
+  //Color
+  +mod('--primary')
+    background: $color-primary
+    color: white
+
+    +on-event
+      background: darken($color-primary, 5%)
+      transform: scale(0.98)
+
+    +mod('--pulse')
+      animation: pulse-primary 1.5s ease infinite
+
+    @keyframes pulse-primary
+      0%
+        box-shadow: 0px 0px 0px 0px $color-primary
+      100%
+        box-shadow: 0px 0px 10px 15px rgba($color-primary, 0)
+
+  //Extensions
+  +mod('--wide')
+    width: 100%
+    max-width: 100%
+
+    +on-event
+      animation: none
+
+    

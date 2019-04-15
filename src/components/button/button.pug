@@ -1,0 +1,5 @@
+mixin button(label, mod, classParent='')
+	-
+		const classMod = 'c-btn'+mod+' '+classParent;
+
+	a.c-btn(href="javascript:void(0)" class=classMod)&attributes(attributes) !{label}

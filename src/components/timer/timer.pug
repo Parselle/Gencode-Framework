@@ -1,0 +1,17 @@
+mixin timer(days='')
+  .c-timer.sale__timer.js-timer(data-timer=days)
+    .c-timer__block
+      h5.c-timer__value(data-timer='days') 0
+      p.c-timer__desc дней
+
+    .c-timer__block
+      h5.c-timer__value(data-timer='hours') 0
+      p.c-timer__desc часов
+
+    .c-timer__block
+      h5.c-timer__value(data-timer='minutes') 0
+      p.c-timer__desc минут
+
+    .c-timer__block
+      h5.c-timer__value(data-timer='seconds') 0
+      p.c-timer__desc секунд

@@ -1,0 +1,39 @@
+mixin form-header
+	.c-form__header
+		block
+
+mixin form-content
+	.c-form__content
+		block
+
+mixin form-group(mod='')
+	-
+		const classMod = 'c-form__group'+mod;
+
+	.c-form__group(class=classMod)
+		block
+
+mixin form-btn(label, mod)
+	-
+		const classMod = 'c-btn'+mod+' c-form__btn';
+
+	input.c-btn(
+		class=classMod
+		type='submit'
+		value=label)&attributes(attributes)
+
+mixin form-footer-text(text)
+	p.c-form__footer-text !{text}
+
+mixin form(id, classParent='', mod='')
+	-
+		const classMod = 'c-form'+mod+' '+classParent;
+
+	form.c-form(
+		id=id
+		class=classMod
+		action=''
+		method='post'
+	)&attributes(attributes)
+
+		block

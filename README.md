@@ -1,3 +1,7 @@
-Developed by Gencode-Framework
-v1.2.5 (Sep 2018)
-https://github.com/Parselle/Gencode-Framework
+Gencode Front-end Framework
+=============================
+Спасибо что выбрали GFF - фреймворк для удобной верстки статических сайтов
+
+## Быстрый старт
+
+- Склонируйте репозиторий: `git clone https://github.com/Parselle/Gencode-Framework.git`

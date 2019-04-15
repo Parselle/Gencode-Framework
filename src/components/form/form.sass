@@ -1,0 +1,68 @@
+.c-form
+  display: grid
+  grid-template-columns: minmax(200px, 370px)
+  grid-gap: 15px
+  padding: 20px
+  border-radius: 5px
+  background: white
+  border: 1px solid #ebedf0
+
+  &__header
+    text-align: center
+
+  &__content
+    display: grid
+    grid-template-columns: 100%
+    justify-content: center
+    grid-gap: 8px
+    width: 100%
+
+  &__group
+    display: grid
+    grid-template-columns: 100%
+    grid-column: 1 / -1
+    grid-gap: 5px
+    color: $color-danger
+    text-align: left
+
+    +mod('--2')
+      grid-template-columns: repeat(2, 1fr)
+
+    +mod('--3')
+      grid-template-columns: repeat(3, 1fr)
+
+  &__btn
+    justify-self: center
+    grid-column: 1 / -1
+
+  &__footer-text
+    grid-column: 1 / -1
+    opacity: 0.6
+    text-align: center
+
+  +mod('--wide')
+    grid-template-columns: minmax(200px, 100%)
+    grid-gap: 20px
+    width: 100%
+    padding: 20px 40px
+
+    +media-mx(768px)
+      padding: 20px
+
+    .c-form
+      &__header
+        text-align: left
+
+      &__content
+        grid-template-columns: 1fr 1fr 1fr
+        align-items: end
+
+        +media-mx(768px)
+          grid-template-columns: 100%
+
+      &__block
+        grid-column: auto
+      
+      &__btn
+        grid-column: auto
+        height: 50px

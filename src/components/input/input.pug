@@ -1,0 +1,9 @@
+mixin input(label, type, name, mask='')
+  .c-input
+    input.c-input__field(
+      type=type
+      name=name
+      data-mask=mask
+      required
+    )&attributes(attributes)
+    .c-input__label= label
