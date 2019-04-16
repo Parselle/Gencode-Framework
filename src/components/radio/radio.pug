@@ -1,0 +1,8 @@
+mixin radio(label, name, id)
+  .c-radio
+    input.c-radio__field(
+      type='radio'
+      name=name
+      id=id
+    )&attributes(attributes)
+    label.c-radio__label(for=id)= label

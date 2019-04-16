@@ -1,0 +1,8 @@
+mixin checkbox(label, name)
+  .c-checkbox
+    input.c-checkbox__field(
+      type='checkbox'
+      name=name
+      id=name
+    )&attributes(attributes)
+    label.c-checkbox__label(for=name)= label

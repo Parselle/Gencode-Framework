@@ -1,0 +1,44 @@
+.c-checkbox
+  margin: 8px 0
+  display: grid
+  
+  &__field:not(:checked),
+  &__field:checked
+    position: absolute
+    left: -9999px
+
+  &__field:not(:checked) + &__label,
+  &__field:checked + &__label
+    position: relative
+    display: grid
+    align-items: center
+    padding-left: 25px
+    cursor: pointer
+    font-size: 14px
+    padding-top: 2px
+    text-align: left
+
+  &__field:not(:checked) + &__label:before,
+  &__field:checked + &__label:before
+    display: grid
+    align-items: center
+    justify-items: center
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 16px
+    height: 16px
+    background: white
+    border-radius: 3px
+    border: 1px solid #d9d9d9
+    transition: all 0.3s
+    color: white
+
+  &__field:not(:checked):hover + &__label:before
+    border-color: $color-primary
+
+  &__field:checked + &__label:before
+    content: '✓'
+    font-size: 10px
+    background: $color-primary
