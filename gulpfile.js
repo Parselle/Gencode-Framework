@@ -69,11 +69,7 @@ const postcssPlugins = [
     rootValue: 16,
     propList: ['*']
   }),
-  autoprefixer({
-    browsers: ['last 5 versions', 'not ie < 11'],
-    grid: true,
-    cascade: false
-  }),
+  autoprefixer(),
   cssnano({
     preset: 'default'
   })
